@@ -1,0 +1,19 @@
+<!-- form_for with Bootstrap -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <h3>ADD a Producer!</h3>
+      <%= form_for(@producer) do |f| %>
+        <div class="form-group">
+          <%= f.label :producer_name %>
+          <%= f.text_field :producer_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
