@@ -14,7 +14,8 @@ class ProducersController < ApplicationController
   end
 
   def create
-
+    @producer = Producer.find(producer_params)
+    @producer.user = current_user
   end
 
   def edit
@@ -33,6 +34,6 @@ class ProducersController < ApplicationController
   end
 
   def producer_params
-    params.require(:producer).permit(:producer_name)
+    params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country)
   end
 end
