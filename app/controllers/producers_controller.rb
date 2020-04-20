@@ -10,12 +10,18 @@ class ProducersController < ApplicationController
   end
 
   def new
-
+    @producer = Producer.new
   end
 
   def create
     @producer = Producer.find(producer_params)
     @producer.user = current_user
+
+    if @producer.save
+      redirect_to @producer, notice: "Producer was successfully created!"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,6 +31,7 @@ class ProducersController < ApplicationController
   end
 
   def destroy
+    @producer.destroy
   end
 
   private
