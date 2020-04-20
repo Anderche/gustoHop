@@ -14,10 +14,15 @@ class ProducersController < ApplicationController
   end
 
   def create
-    @producer = Producer.find(producer_params)
+    @island = Island.new(island_params)
+
+    # works >> not sure why however >> THIS NEEDS TO BE DYNAMIC VALUE SET BY current_user...
+    # @producer.island = Island.create!(island_country: "Italy", island_name: "Ischia")
+
+    @producer = Producer.new(producer_params)
     @producer.user = current_user
 
-    if @producer.save
+    if @producer.save!
       redirect_to @producer, notice: "Producer was successfully created!"
     else
       render :new
@@ -28,6 +33,11 @@ class ProducersController < ApplicationController
   end
 
   def update
+    if @producer.save!
+      redirect_to @producer, notice: "Edits saved!"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -42,5 +52,9 @@ class ProducersController < ApplicationController
 
   def producer_params
     params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country)
+  end
+
+  def island_params
+    params.require(:island).permit(:island_name, :island_country)
   end
 end
