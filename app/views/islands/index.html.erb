@@ -2,9 +2,11 @@
   <h1>Islands</h1>
   <ul>
     <% @islands.each  do |island| %>
-      <li>
-        <%= link_to island.island_name, island_path(island)%>
-      </li>
+      <div class="container">
+        <li>
+          <h3><%= link_to island.island_name, island_path(island)%></h3>
+        </li>
+      </div>
     <% end %>
   </ul>
 </div>

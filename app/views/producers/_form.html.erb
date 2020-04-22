@@ -1,46 +1,38 @@
-<!-- form_for with Bootstrap -->
 <div class="container">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
-      <%= form_for(@producer) do |f| %>
+      <h3>Producer details</h3>
+      <%= form_with(model: [ @island, producer ], local: true) do |form| %>
         <div class="form-group">
-          <%= f.label :producer_name %>
-          <%= f.text_field :producer_name, class: 'form-control' %>
+          <%= form.label :producer_name %>
+          <%= form.text_field :producer_name, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :email %>
-          <%= f.text_field :email, class: 'form-control' %>
+          <%= form.label :email %>
+          <%= form.text_field :email, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :address1 %>
-          <%= f.text_field :address1, class: 'form-control' %>
+          <%= form.label :address1 %>
+          <%= form.text_field :address1, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :address2 %>
-          <%= f.text_field :address2, class: 'form-control' %>
+          <%= form.label :address2 %>
+          <%= form.text_field :address2, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :postal_code %>
-          <%= f.text_field :postal_code, class: 'form-control' %>
+          <%= form.label :postal_code %>
+          <%= form.text_field :postal_code, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :city %>
-          <%= f.text_field :city, class: 'form-control' %>
+          <%= form.label :city %>
+          <%= form.text_field :city, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :country %>
-          <%= f.text_field :country, class: 'form-control' %>
-          <!--  </div>
-        <div class="form-group">
-          <%= f.label :island_name %>
-          <%= f.text_field :island_name, class: 'form-control' %>
+          <%= form.label :country %>
+          <%= form.text_field :country, class: 'form-control' %>
         </div>
-        <div class="form-group">
-          <%= f.label :island_country %>
-          <%= f.text_field :island_country, class: 'form-control' %>
-        </div> -->
-          <%= f.submit class: 'btn btn-primary' %>
-        <% end %>
-      </div>
+        <%= form.submit class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
+</div>

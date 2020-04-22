@@ -1,5 +1,6 @@
 class ProducersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
+  before_action :set_island
   before_action :set_producer, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,19 +15,29 @@ class ProducersController < ApplicationController
   end
 
   def create
-    @island = Island.new(island_params)
-
-    # works >> not sure why however >> THIS NEEDS TO BE DYNAMIC VALUE SET BY current_user...
-    # @producer.island = Island.create!(island_country: "Italy", island_name: "Ischia")
-
-    @producer = Producer.new(producer_params)
+    @producer = @island.producers.create(producer_params)
+    # redirect_to island_path(@island)
     @producer.user = current_user
 
+    # WORKING >> REDIRECTING TO ISLAND INDEX
+    # if @producer.save!
+    #   redirect_to islands_path, notice: "Producer was successfully created!"
+    # else
+    #   render :new
+    # end
+
+    # WORKING >> REDIRECTING TO ISLAND SHOWPAGE
     if @producer.save!
-      redirect_to @producer, notice: "Producer was successfully created!"
+      redirect_to island_path(@island), notice: "Producer was successfully created!"
     else
       render :new
     end
+
+    # if @producer.save!
+    #   redirect_to island_producer_path, notice: "Producer was successfully created!"
+    # else
+    #   render :new
+    # end
   end
 
   def edit
@@ -34,7 +45,7 @@ class ProducersController < ApplicationController
 
   def update
     if @producer.save!
-      redirect_to @producer, notice: "Edits saved!"
+      redirect_to island_producer_path, notice: "Edits saved!"
     else
       render :edit
     end
@@ -46,15 +57,20 @@ class ProducersController < ApplicationController
 
   private
 
+  def set_island
+    @island = Island.find(params[:island_id])
+  end
+
   def set_producer
-    @producer = Producer.find(params[:id])
+    @producer = @island.producers.find(params[:id])
+  end
+
+  # delete? >> keeping in efforts to debug index view
+  def island_params
+    params.require(:island).permit(:island_name, :island_country)
   end
 
   def producer_params
     params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country)
-  end
-
-  def island_params
-    params.require(:island).permit(:island_name, :island_country)
   end
 end
