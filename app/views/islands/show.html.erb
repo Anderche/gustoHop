@@ -1,3 +1,19 @@
+<p id="notice"><%= notice %></p>
 <div class="container">
   <h1><%= @island.island_name %> - <em>(<%= @island.island_country %>)</em></h1>
+  <% if @island.producers.any? %>
+    <em>
+      <h4>Producers from <%= @island.island_name %></h4>
+    </em>
+    <hr>
+    <ul>
+      <% @island.producers.each do |producer| %>
+        <div class="container">
+          <h5><%= producer.producer_name %></h5>
+          <h5><%= link_to "details", island_producer_path(@island, producer)%></h5>
+        </div>
+      <% end %>
+    </ul>
+    <hr>
+  <% end %>
 </div>

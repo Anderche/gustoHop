@@ -13,4 +13,5 @@ class IslandsController < ApplicationController
   def island_params
     params.require(:island).permit(:island_name, :island_country)
   end
+
 end

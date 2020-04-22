@@ -1,5 +1,6 @@
 class ProducersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
+  before_action :set_island
   before_action :set_producer, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,20 +15,40 @@ class ProducersController < ApplicationController
   end
 
   def create
-    @producer = Producer.find(producer_params)
+    @producer = @island.producers.create(producer_params)
+    # redirect_to island_path(@island)
     @producer.user = current_user
 
-    if @producer.save
-      redirect_to @producer, notice: "Producer was successfully created!"
+    # WORKING >> REDIRECTING TO ISLAND INDEX
+    # if @producer.save!
+    #   redirect_to islands_path, notice: "Producer was successfully created!"
+    # else
+    #   render :new
+    # end
+
+    # WORKING >> REDIRECTING TO ISLAND SHOWPAGE
+    if @producer.save!
+      redirect_to island_path(@island), notice: "Producer was successfully created!"
     else
       render :new
     end
+
+    # if @producer.save!
+    #   redirect_to island_producer_path, notice: "Producer was successfully created!"
+    # else
+    #   render :new
+    # end
   end
 
   def edit
   end
 
   def update
+    if @producer.save!
+      redirect_to island_producer_path, notice: "Edits saved!"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -36,8 +57,17 @@ class ProducersController < ApplicationController
 
   private
 
+  def set_island
+    @island = Island.find(params[:island_id])
+  end
+
   def set_producer
-    @producer = Producer.find(params[:id])
+    @producer = @island.producers.find(params[:id])
+  end
+
+  # delete? >> keeping in efforts to debug index view
+  def island_params
+    params.require(:island).permit(:island_name, :island_country)
   end
 
   def producer_params

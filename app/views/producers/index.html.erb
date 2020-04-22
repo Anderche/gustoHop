@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Producers</h1>
-  <% @producers.each do |producer| %>
-    <ul>
-      <li><%= producer.producer_name %></li>
-    </ul>
-  <% end %>
+  <ul>
+    <% @producers.each do |producer| %>
+      <li><%= producer.id %> - <%= producer.producer_name %></li>
+    <% end %>
+  </ul>
 </div>
