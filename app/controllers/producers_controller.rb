@@ -1,10 +1,10 @@
 class ProducersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
-  before_action :set_island
-  before_action :set_producer, only: [:show, :edit, :update, :destroy]
+  before_action :set_island, only: [ :show, :edit, :update, :destroy]
+  before_action :set_producer, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @producers = Producer.all
+    @producers = Producer.where(island_id: params[:island_id])
   end
 
   def show
@@ -19,25 +19,12 @@ class ProducersController < ApplicationController
     # redirect_to island_path(@island)
     @producer.user = current_user
 
-    # WORKING >> REDIRECTING TO ISLAND INDEX
-    # if @producer.save!
-    #   redirect_to islands_path, notice: "Producer was successfully created!"
-    # else
-    #   render :new
-    # end
-
     # WORKING >> REDIRECTING TO ISLAND SHOWPAGE
     if @producer.save!
       redirect_to island_path(@island), notice: "Producer was successfully created!"
     else
       render :new
     end
-
-    # if @producer.save!
-    #   redirect_to island_producer_path, notice: "Producer was successfully created!"
-    # else
-    #   render :new
-    # end
   end
 
   def edit
