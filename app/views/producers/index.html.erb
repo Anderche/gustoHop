@@ -1,8 +1,11 @@
 <div class="container">
-  <h1>Producers</h1>
+  <h1>Producers from <%= @island.island_name %></h1>
   <ul>
     <% @producers.each do |producer| %>
-      <li><%= producer.id %> - <%= producer.producer_name %></li>
+      <div class="container">
+        <h5><%= producer.producer_name %></h5>
+        <h5><%= link_to "details", island_producer_path(producer.island, producer)%></h5>
+      </div>
     <% end %>
   </ul>
 </div>
