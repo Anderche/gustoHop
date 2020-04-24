@@ -18,12 +18,19 @@
        // font-url('FontFile.woff') format('woff'),
        // font-url('FontFile.ttf') format('truetype')
 }
+@font-face {
+  font-family: "mascarpone-regular";
+  src: font-url('Mascarpone-Regular.ttf');
+  src: font-url('Mascarpone-Regular.ttf?#iefix') format('embedded-opentype'),
+       // font-url('FontFile.woff') format('woff'),
+       // font-url('FontFile.ttf') format('truetype')
+}
 
 
 // Define fonts for body and headers
 // $body-font: "Work Sans", "Helvetica", "sans-serif";
 $body-font: 'Cutive Mono', monospace;
-$headers-font: 'mascarpone-oblique';
+$headers-font: 'mascarpone-oblique', 'mascarpone-regular', ;
 
 
 // $my-font: "Font Name";
