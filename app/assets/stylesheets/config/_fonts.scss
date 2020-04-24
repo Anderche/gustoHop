@@ -1,12 +1,6 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap');
 
-
-// Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: 'Cutive Mono', monospace;
-
-
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
@@ -15,4 +9,21 @@ $headers-font: 'Cutive Mono', monospace;
 //        font-url('FontFile.woff') format('woff'),
 //        font-url('FontFile.ttf') format('truetype')
 // }
+// $my-font: "Font Name";
+
+@font-face {
+  font-family: "mascarpone-oblique";
+  src: font-url('Mascarpone-Oblique.ttf');
+  src: font-url('Mascarpone-Oblique.ttf?#iefix') format('embedded-opentype'),
+       // font-url('FontFile.woff') format('woff'),
+       // font-url('FontFile.ttf') format('truetype')
+}
+
+
+// Define fonts for body and headers
+// $body-font: "Work Sans", "Helvetica", "sans-serif";
+$body-font: 'Cutive Mono', monospace;
+$headers-font: 'mascarpone-oblique';
+
+
 // $my-font: "Font Name";
