@@ -1,12 +1,23 @@
 <div class="container">
-  <h1>Islands</h1>
-  <ul>
-    <% @islands.each  do |island| %>
-      <div class="container">
-        <li>
-          <h3><%= link_to island.island_name, island_path(island)%></h3>
-        </li>
-      </div>
-    <% end %>
-  </ul>
+  <div class="container">
+    <h1>Discover Island wines</h1>
+    <h5>take a trip in every sip!</h5>
+  </div>
+  <div class="container">
+    <p>search wines from one of our island producers</p>
+    <p>Care to list your wine? Contact us today!</p>
+    <p><a href="mailto:info@gustohop.com">Email Us</a></p>
+  </div>
+  <div class="container">
+    <h2>Islands</h2>
+    <ul>
+      <% @islands.each  do |island| %>
+        <div class="container">
+          <li>
+            <h3><%= link_to island.island_name, island_path(island)%></h3>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 </div>
