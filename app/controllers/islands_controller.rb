@@ -5,7 +5,8 @@ class IslandsController < ApplicationController
   # before_action :set_producer, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @islands = Island.all
+    # @islands = Island.all
+    @islands = policy_scope(Island)
   end
 
   def show
