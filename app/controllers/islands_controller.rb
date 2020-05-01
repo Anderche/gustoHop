@@ -18,7 +18,7 @@ class IslandsController < ApplicationController
 
   def create
     @island = Island.new(island_params)
-
+    authorize @island
     if @island.save!
       redirect_to island_path(@island), notice: "Island successfully created!"
     else
@@ -30,6 +30,7 @@ class IslandsController < ApplicationController
 
   def set_island
     @island = Island.find(params[:id])
+    authorize @island
   end
 
   def island_params
