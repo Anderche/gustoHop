@@ -5,7 +5,8 @@ class IslandsController < ApplicationController
   # before_action :set_producer, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @islands = Island.all
+    # @islands = Island.all
+    @islands = policy_scope(Island)
   end
 
   def show
@@ -13,11 +14,12 @@ class IslandsController < ApplicationController
 
   def new
     @island = Island.new
+    authorize @island
   end
 
   def create
     @island = Island.new(island_params)
-
+    authorize @island
     if @island.save!
       redirect_to island_path(@island), notice: "Island successfully created!"
     else
@@ -29,6 +31,7 @@ class IslandsController < ApplicationController
 
   def set_island
     @island = Island.find(params[:id])
+    authorize @island
   end
 
   def island_params
