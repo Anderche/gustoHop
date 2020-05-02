@@ -1,14 +1,5 @@
 // Specific CSS for your home-page
 
-
-
-
-.banner {
-  // background-color: rgb(200, 200, 200);
-  background-color: beige;
-}
-
-
 .call-to-action {
   display: flex;
   width: 475px;
@@ -17,6 +8,10 @@
   justify-content: space-between;
   align-items: flex-start;
 }
+
+// .call-to-action h5 {
+//   color: white;  
+// }
 
 .island-index-top {
   display: flex;
