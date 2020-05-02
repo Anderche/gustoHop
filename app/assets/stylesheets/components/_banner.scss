@@ -1,4 +1,15 @@
 .banner {
-  color: red;
   background-color: #82d73b;  
+  background-size: cover;
 }
+
+.banner h1 {
+  color: white;
+}
+
+.banner h2, h3, h4, h5, p {
+  color: white;
+  text-shadow: 2px 2px 2px #3e3bd7;
+}
+
+
