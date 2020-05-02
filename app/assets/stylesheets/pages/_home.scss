@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+
+
+
+
+.banner {
+  // background-color: rgb(200, 200, 200);
+  background-color: beige;
+}
+
+
+.call-to-action {
+  display: flex;
+  width: 475px;
+  padding: 15px;
+  align-text: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.island-index-top {
+  display: flex;
+}
+
+
+
+.island-cards {
+  padding: 25px
+}

@@ -5,19 +5,23 @@
   </div>
   <div class="container">
     <p>search wines from one of our island producers</p>
-    <p>Care to list your wine? Contact us today!</p>
-    <p><a href="mailto:info@gustohop.com">Email Us</a></p>
   </div>
-  <div class="container">
-    <h2>Islands</h2>
-    <ul>
-      <% @islands.each  do |island| %>
-        <div class="container">
-          <li>
-            <h3><%= link_to island.island_name, island_path(island)%></h3>
-          </li>
-        </div>
-      <% end %>
-    </ul>
+</div>
+<div class="banner">
+  <div class="container call-to-action">
+    <h5>Care to list your wine?</h5>
+    <a href="mailto:info@gustohop.com" class="btn btn-primary">CONTACT US!</a>
   </div>
+</div>
+<div class="container island-cards">
+  <h2>Islands</h2>
+  <ul>
+    <% @islands.each  do |island| %>
+      <div class="container">
+        <li>
+          <h3><%= link_to island.island_name, island_path(island)%></h3>
+        </li>
+      </div>
+    <% end %>
+  </ul>
 </div>
