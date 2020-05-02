@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+
+.call-to-action {
+  display: flex;
+  width: 475px;
+  padding: 15px;
+  align-text: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+// .call-to-action h5 {
+//   color: white;  
+// }
+
+.island-index-top {
+  display: flex;
+}
+
+
+
+.island-cards {
+  padding: 25px
+}
