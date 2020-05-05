@@ -13,16 +13,17 @@ class ProducersController < ApplicationController
 
   def new
     @producer = Producer.new
+    authorize @producer
   end
 
   def create
     @producer = @island.producers.create(producer_params)
     # redirect_to island_path(@island)
     @producer.user = current_user
-
+    authorize @producer
     # WORKING >> REDIRECTING TO ISLAND SHOWPAGE
     if @producer.save!
-      redirect_to island_path(@island), notice: "Producer was successfully created!"
+      redirect_to island_producer_path(@island, @producer), notice: "Producer was successfully created!"
     else
       render :new
     end
