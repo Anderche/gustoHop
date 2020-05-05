@@ -5,6 +5,7 @@ class ProducersController < ApplicationController
 
   def index
     @producers = Producer.where(island_id: params[:island_id])
+    @producers = policy_scope(Producer)
   end
 
   def show
