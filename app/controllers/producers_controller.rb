@@ -51,6 +51,7 @@ class ProducersController < ApplicationController
 
   def set_producer
     @producer = @island.producers.find(params[:id])
+    authorize @producer
   end
 
   # delete? >> keeping in efforts to debug index view
