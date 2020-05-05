@@ -5,6 +5,7 @@ class ProducersController < ApplicationController
 
   def index
     @producers = Producer.where(island_id: params[:island_id])
+    @producers = policy_scope(Producer)
   end
 
   def show
@@ -50,6 +51,7 @@ class ProducersController < ApplicationController
 
   def set_producer
     @producer = @island.producers.find(params[:id])
+    authorize @producer
   end
 
   # delete? >> keeping in efforts to debug index view
