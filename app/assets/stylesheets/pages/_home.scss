@@ -2,19 +2,18 @@
 
 .call-to-action {
   display: flex;
-  width: 475px;
+  width: 500px;
   padding: 15px;
   align-text: center;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.island-index-top {
-  display: flex;
-}
-
-
-
 .island-cards {
-  padding: 25px
+  padding: 40px 70px;
 }
+
+
+// .island-cards h2, h3 {
+//   color: red;
+// }
