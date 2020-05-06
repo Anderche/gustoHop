@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   root to: 'islands#index'
 
-  resources :islands, only: [ :index, :show, :new, :create ] do
+  # resources :islands, only: [ :index, :show, :new, :create ] do
+  resources :islands do
     resources :producers
   end
 end

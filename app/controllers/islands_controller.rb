@@ -27,6 +27,17 @@ class IslandsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @island.save!
+      redirect_to island_path(@island), notice: "Island updated!"
+    else
+      render :new
+    end
+  end
+
   private
 
   def set_island
