@@ -62,6 +62,6 @@ class ProducersController < ApplicationController
   end
 
   def producer_params
-    params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country)
+    params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country, :island_id)
   end
 end
