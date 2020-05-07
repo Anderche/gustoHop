@@ -42,6 +42,7 @@ class ProducersController < ApplicationController
 
   def destroy
     @producer.destroy
+    redirect_to island_producers_path, notice: "the producer has been removed."
   end
 
   private
