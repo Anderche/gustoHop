@@ -5,6 +5,10 @@ class ProducerPolicy < ApplicationPolicy
     end
   end
 
+  def index
+    @producers = policy_scope(@island.producers)
+  end
+
   def show?
     return true
   end

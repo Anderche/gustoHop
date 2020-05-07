@@ -1,11 +1,17 @@
 class ProducersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
-  before_action :set_island, only: [ :index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :set_island
   before_action :set_producer, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @producers = Producer.where(island_id: params[:island_id])
-    @producers = policy_scope(Producer)
+    # NOT WORKING
+    # @producers = Producer.all
+    # @producers = Producer.where(island_id: params[:island_id])
+    # @producers = policy_scope(Producer)
+
+    # WORKING >> I needed revise the policy_scope after integrating the Pundit gem for authorization
+    @producers = policy_scope(@island.producers)
+
   end
 
   def show
@@ -56,10 +62,10 @@ class ProducersController < ApplicationController
     authorize @producer
   end
 
-  # delete? >> keeping in efforts to debug index view
-  def island_params
-    params.require(:island).permit(:island_name, :island_country)
-  end
+  # # delete? >> keeping in efforts to debug index view
+  # def island_params
+  #   params.require(:island).permit(:island_name, :island_country)
+  # end
 
   def producer_params
     params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country, :island_id)
