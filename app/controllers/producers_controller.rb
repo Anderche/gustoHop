@@ -13,16 +13,17 @@ class ProducersController < ApplicationController
 
   def new
     @producer = Producer.new
+    authorize @producer
   end
 
   def create
     @producer = @island.producers.create(producer_params)
     # redirect_to island_path(@island)
     @producer.user = current_user
-
+    authorize @producer
     # WORKING >> REDIRECTING TO ISLAND SHOWPAGE
     if @producer.save!
-      redirect_to island_path(@island), notice: "Producer was successfully created!"
+      redirect_to island_producer_path(@island, @producer), notice: "Producer was successfully created!"
     else
       render :new
     end
@@ -41,6 +42,7 @@ class ProducersController < ApplicationController
 
   def destroy
     @producer.destroy
+    redirect_to island_producers_path, notice: "the producer has been removed."
   end
 
   private
@@ -60,6 +62,6 @@ class ProducersController < ApplicationController
   end
 
   def producer_params
-    params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country)
+    params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country, :island_id)
   end
 end

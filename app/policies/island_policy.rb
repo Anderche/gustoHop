@@ -4,8 +4,8 @@ class IslandPolicy < ApplicationPolicy
       # Anyone can view
       scope.all
 
-      # Only owner can view >> throws an error >> probably need to add user_id foreign key to Island model
       # scope.where(user: user)
+      # Only owner can view >> throws an error >> probably need to add user_id foreign key to Island model
     end
   end
 
@@ -13,11 +13,11 @@ class IslandPolicy < ApplicationPolicy
     return true
   end
 
-  def new?
+  def create?
     return true
   end
 
-  def create?
+  def update?
     return true
   end
 end
