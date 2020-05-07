@@ -1,11 +1,20 @@
 <div class="container">
   <h1>Producers from <%= @island.island_name %></h1>
-  <ul>
-    <% @producers.each do |producer| %>
-      <div class="container">
-        <h5><%= producer.producer_name %></h5>
-        <h5><%= link_to "details", island_producer_path(producer.island, producer)%></h5>
-      </div>
-    <% end %>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>LINK</th>
+        <th colspan="10"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @producers.each do |producer| %>
+        <tr>
+          <td><%= producer.producer_name %></td>
+          <td><%= link_to "DETAILS", island_producer_path(producer.island, producer)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
