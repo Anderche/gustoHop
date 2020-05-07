@@ -38,6 +38,10 @@ class IslandsController < ApplicationController
     end
   end
 
+  def destroy
+    @island.destroy
+  end
+
   private
 
   def set_island
