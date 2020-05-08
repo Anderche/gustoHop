@@ -12,7 +12,9 @@
       <% @producers.each do |producer| %>
         <tr>
           <td><%= producer.producer_name %></td>
-          <td><%= link_to "DETAILS", island_producer_path(producer.island, producer)%></td>
+          <td>
+            <%= link_to "DETAILS", island_producer_path(producer.island, producer)%>
+          </td>
         </tr>
       <% end %>
     </tbody>
