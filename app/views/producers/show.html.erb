@@ -13,7 +13,7 @@
           <p>ISLAND: <%= @producer.island.island_name %></p>
         </div>
         <% if policy(@producer).edit? %>
-          <%= link_to "EDIT", edit_island_producer_path(@producer), {class: "btn btn-primary"} %>
+          <%= link_to "EDIT", edit_island_producer_path(@island, @producer), {class: "btn btn-primary"} %>
         <% end %>
         <% if policy(@producer).destroy? %>
           <%= link_to "DELETE", island_producer_path, method: :delete, data: {confirm: "Are you sure you want to delete? (it is permanent)"} %>

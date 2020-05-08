@@ -3,8 +3,12 @@
   <table>
     <thead>
       <tr>
-        <th>NAME</th>
-        <th>LINK</th>
+        <th>
+          <h3>NAME</h3>
+        </th>
+        <th>
+          <h3>DETAILS</h3>
+        </th>
         <th colspan="10"></th>
       </tr>
     </thead>
@@ -13,10 +17,11 @@
         <tr>
           <td><%= producer.producer_name %></td>
           <td>
-            <%= link_to "DETAILS", island_producer_path(producer.island, producer)%>
+            <%= link_to "more info", island_producer_path(producer.island, producer)%>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= link_to "ADD Producer", new_island_producer_path, :class => "btn btn-primary" %>
 </div>

@@ -62,12 +62,12 @@ class ProducersController < ApplicationController
     authorize @producer
   end
 
-  # # delete? >> keeping in efforts to debug index view
-  # def island_params
-  #   params.require(:island).permit(:island_name, :island_country)
-  # end
+  # delete? >> keeping in efforts to debug index view
+  def island_params
+    params.require(:island).permit(:island_name, :island_country)
+  end
 
   def producer_params
-    params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country, :island_id)
+    params.require(:producer).permit(:producer_name, :email, :address1, :address2, :postal_code, :city, :country)
   end
 end
