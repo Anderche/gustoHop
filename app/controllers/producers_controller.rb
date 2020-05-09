@@ -11,7 +11,6 @@ class ProducersController < ApplicationController
 
     # WORKING >> I needed revise the policy_scope after integrating the Pundit gem for authorization
     @producers = policy_scope(@island.producers)
-
   end
 
   def show
@@ -39,7 +38,7 @@ class ProducersController < ApplicationController
   end
 
   def update
-    if @producer.save!
+    if @producer.update!(producer_params)
       redirect_to island_producer_path, notice: "Edits saved!"
     else
       render :edit
