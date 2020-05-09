@@ -20,7 +20,7 @@
     <a href="mailto:info@gustohop.com" class="btn btn-primary">CONTACT US!</a>
   </div>
 </div>
-<div class="container island-cards">
+<!-- <div class="container island-cards">
   <h2>Islands</h2>
   <ul>
     <% @islands.each  do |island| %>
@@ -31,17 +31,19 @@
       </div>
     <% end %>
   </ul>
-</div>
+</div> -->
 <div class="container">
   <h2>Islands</h2>
-  <% @islands.each  do |island| %>
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://kitt.lewagon.com/placeholder/cities/random" alt="Card image cap">
-      <div class="card-body">
-        <h3><%= island.island_name %></h3>
-        <p class="card-text">Lorem ipsum</p>
-        <a href=<%= island_path(island) %> class="btn btn-primary">More Info</a>
+  <div class="card-columns">
+    <% @islands.each  do |island| %>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://kitt.lewagon.com/placeholder/cities/random" alt="Card image cap">
+        <div class="card-body">
+          <h3><%= island.island_name %></h3>
+          <p class="card-text">Lorem ipsum</p>
+          <a href=<%= island_path(island) %> class="btn btn-primary">More Info</a>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
