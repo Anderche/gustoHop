@@ -1,5 +1,20 @@
 // Specific CSS for your home-page
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.value-add {
+  width: 925px;
+  padding: 15px;
+  align-text: justify;
+}
+
 .call-to-action {
   display: flex;
   width: 500px;
@@ -10,10 +25,20 @@
 }
 
 .island-cards {
-  padding: 40px 70px;
+  padding: 50px;
 }
 
-
-// .island-cards h2, h3 {
-//   color: red;
-// }
+.card-columns {
+  @include media-breakpoint-only(sm) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 3;
+  } 
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 4;
+  }
+}
