@@ -14,14 +14,14 @@ class ProducerPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner?
+    user_is_owner_or_admin?
   end
 
   def destroy?
-    user_is_owner?
+    user_is_owner_or_admin?
   end
 
-  def user_is_owner?
-    record.user == user
+  def user_is_owner_or_admin?
+    record.user == user || user.admin
   end
 end
