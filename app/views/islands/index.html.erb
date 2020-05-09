@@ -10,6 +10,11 @@
   </div>
 </div>
 <div class="banner">
+  <div class="container value-add">
+    <p>Island wines have several benefits that any wine enthusiast would appreciate. Many are grown on unique microclimates and in volcanic soil that impart distinct characteristics. Oftentimes, the wines are grown on small-yield vineyards that utilize organic production methods.</p>
+  </div>
+</div>
+<div class="banner">
   <div class="container call-to-action">
     <h3>WANT TO LIST YOUR WINE?</h3>
     <a href="mailto:info@gustohop.com" class="btn btn-primary">CONTACT US!</a>
@@ -26,4 +31,17 @@
       </div>
     <% end %>
   </ul>
+</div>
+<div class="container">
+  <h2>Islands</h2>
+  <% @islands.each  do |island| %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://kitt.lewagon.com/placeholder/cities/random" alt="Card image cap">
+      <div class="card-body">
+        <h3><%= island.island_name %></h3>
+        <p class="card-text">Lorem ipsum</p>
+        <a href=<%= island_path(island) %> class="btn btn-primary">More Info</a>
+      </div>
+    </div>
+  <% end %>
 </div>
