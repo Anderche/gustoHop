@@ -1,5 +1,11 @@
 // Specific CSS for your home-page
 
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
 .value-add {
   width: 925px;
   padding: 15px;
