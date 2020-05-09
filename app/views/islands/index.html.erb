@@ -32,11 +32,10 @@
     <% end %>
   </ul>
 </div> -->
-<div class="container">
-  <h2>Islands</h2>
+<div class="container island-cards">
   <div class="card-columns">
     <% @islands.each  do |island| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <img class="card-img-top" src="https://kitt.lewagon.com/placeholder/cities/random" alt="Card image cap">
         <div class="card-body">
           <h3><%= island.island_name %></h3>
