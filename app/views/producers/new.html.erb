@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container add-content">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
       <h1>Add a producer</h1>
     </div>
   </div>
+  <%= render 'producers/form', producer: @island.producers.build %>
 </div>
-<%= render 'producers/form', producer: @island.producers.build %>
