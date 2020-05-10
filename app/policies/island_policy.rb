@@ -14,10 +14,18 @@ class IslandPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    user_is_admin?
   end
 
   def update?
-    return true
+    user_is_admin?
+  end
+
+  def destroy?
+    user_is_admin?
+  end
+
+  def user_is_admin?
+    user.admin?
   end
 end
