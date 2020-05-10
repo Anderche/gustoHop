@@ -31,7 +31,7 @@ class IslandsController < ApplicationController
   end
 
   def update
-    if @island.save!
+    if @island.update(island_params)
       redirect_to island_path(@island), notice: "Island updated!"
     else
       render :new
