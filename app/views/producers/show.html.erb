@@ -11,6 +11,7 @@
           <p><%= @producer.postal_code %></p>
           <p><%= @producer.country %></p>
           <p>ISLAND: <%= @producer.island.island_name %></p>
+          <%= cl_image_tag @producer.photo.key %>
         </div>
         <% if policy(@producer).edit? %>
           <%= link_to "EDIT", edit_island_producer_path(@island, @producer), {class: "btn btn-primary"} %>

@@ -3,30 +3,36 @@
     <div class="row">
       <div class="col-sm-8 offset-sm-2">
         <h1><%= @island.island_name %> - <em>(<%= @island.island_country %>)</em></h1>
-        <% if @island.producers.any? %>
-          <span>
-            <h4>Producers from <%= @island.island_name %></h4>
-          </span>
+        <% if @island.producers.empty? %>
+          <p>There are no producers listed for this island, yet.</p>
           <span>
             <h5>
               <%= link_to "ADD Producer", new_island_producer_path(@island) %>
             </h5>
-          </span>
-          <hr>
-          <ul>
-            <% @island.producers.each do |producer| %>
-              <div class="container">
-                <h5><%= producer.producer_name %></h5>
-              </div>
-            <% end %>
-          </ul>
-          <hr>
-          <h5>
-            <%= link_to "View all", island_producers_path(@island) %>
-          </h5>
-          <hr>
-        <% end %>
+          <% else @island.producers.any? %>
+            <span>
+              <h4>Producers from <%= @island.island_name %></h4>
+            </span>
+            <span>
+              <h5>
+                <%= link_to "ADD Producer", new_island_producer_path(@island) %>
+              </h5>
+            </span>
+            <hr>
+            <ul>
+              <% @island.producers.each do |producer| %>
+                <div class="container">
+                  <h5><%= producer.producer_name %></h5>
+                </div>
+              <% end %>
+            </ul>
+            <hr>
+            <h5>
+              <%= link_to "View all", island_producers_path(@island) %>
+            </h5>
+            <hr>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
