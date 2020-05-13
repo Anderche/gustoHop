@@ -6,4 +6,5 @@ class Island < ApplicationRecord
   validates :island_country, presence: true
 
   # validates_associated :producers
+  has_one_attached :photo
 end

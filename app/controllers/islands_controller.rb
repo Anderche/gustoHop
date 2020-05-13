@@ -50,6 +50,6 @@ class IslandsController < ApplicationController
   end
 
   def island_params
-    params.require(:island).permit(:island_name, :island_country)
+    params.require(:island).permit(:island_name, :island_country, :photo)
   end
 end
