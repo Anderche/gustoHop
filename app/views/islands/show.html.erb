@@ -9,6 +9,7 @@
             <h5>
               <%= link_to "ADD Producer", new_island_producer_path(@island) %>
             </h5>
+<<<<<<< Updated upstream
           <% else @island.producers.any? %>
             <span>
               <h4>Producers from <%= @island.island_name %></h4>
@@ -36,3 +37,43 @@
       </div>
     </div>
   </div>
+=======
+          </span>
+        <% else @island.producers.any? %>
+          <span>
+            <h4>Producers from <%= @island.island_name %></h4>
+          </span>
+          <span>
+            <h5>
+              <%= link_to "ADD Producer", new_island_producer_path(@island) %>
+            </h5>
+          </span>
+          <hr>
+          <ul>
+            <% @island.producers.each do |producer| %>
+              <div class="container">
+                <h5><%= producer.producer_name %></h5>
+              </div>
+            <% end %>
+          </ul>
+          <hr>
+          <h5>
+            <%= link_to "View all", island_producers_path(@island) %>
+          </h5>
+          <h5>
+            <% if policy(@island).edit? %>
+              <%= link_to "EDIT", edit_island_path(@island) %>
+            <% end %>
+          </h5>
+          <h5>
+            <% if policy(@island).destroy? %>
+              <%= link_to "DELETE", island_path, method: :delete, data: {confirm: "Are you sure you want to delete this ISLAND? (it is permanent)"} %>
+            <% end %>
+          </h5>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> Stashed changes
