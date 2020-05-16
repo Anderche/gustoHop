@@ -26,7 +26,8 @@
       <div class="card">
         <!-- <img class="card-img-top" src="https://kitt.lewagon.com/placeholder/cities/random" alt="Card image cap"> -->
         <% if island.photo = "" %>
-          <p>no image uploaded...</p>
+          <!-- <p>no image uploaded...</p> -->
+          <%= image_tag "island-wine.jpg", class: "card-img-top", alt: 'gustoHop Island Wines' %>
         <% else %>
           <%= cl_image_tag island.photo.key %>
         <% end %>
