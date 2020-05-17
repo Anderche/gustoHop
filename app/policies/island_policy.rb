@@ -3,9 +3,6 @@ class IslandPolicy < ApplicationPolicy
     def resolve
       # Anyone can view
       scope.all
-
-      # scope.where(user: user)
-      # Only owner can view >> throws an error >> probably need to add user_id foreign key to Island model
     end
   end
 
