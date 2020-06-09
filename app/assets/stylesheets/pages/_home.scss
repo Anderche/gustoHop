@@ -47,3 +47,79 @@ p {
     column-count: 4;
   }
 }
+
+/*-------------- Responsive CSS---------------*/
+
+@media (max-width:767px) {
+  .value-add {
+      width: unset;
+      padding: 15px;
+      align-text: justify;
+  }
+  .container.value-add p {
+      text-align: center;
+  }
+  .container.call-to-action h3 {
+      text-align: center;
+  }
+  .container.call-to-action a.btn.btn-primary {display: block;}
+  .island-cards {
+      padding: 50px 20px;
+  }
+
+  .footer {
+    bottom: 0;
+    width: 100%;
+    height: unset;
+    background-color: #82d73b;
+    padding: 20px 20px;
+    text-align: center;
+  }
+
+  .container.island-cards,.container.add-content {
+    margin-bottom: 90px;
+  }
+
+  .call-to-action {
+      display: block;
+      width: unset;
+      padding: 15px;
+      align-text: center;
+      justify-content: unset;
+      align-items: unset;
+  }
+  .banner {
+      padding: 20px !important;
+  }
+  body {
+      margin-bottom: 0 !important;
+  }
+  .card-columns .card .card-body h3 {
+      text-align: center;
+  }
+  .card-columns .card .card-body p.card-text {
+      text-align: center;
+  }
+  .card-columns .card .card-body a.btn.btn-primary {
+      text-align: center;
+      margin: auto;
+      display: block;
+      width: 70%;
+      margin-top: 11px;
+  }
+  .banner .container h1 {
+      text-align: center;
+  }
+  .banner .container h3 {
+      text-align: center;
+  }
+  .container.add-content form {
+      padding-bottom: 20px;
+  }
+  a.btn.btn-primary {
+      margin: 10px 0;
+  }
+  table {
+      width: 100%;
+  }
+}
