@@ -12,6 +12,11 @@ body {
 p {
   margin-top: 0;
   margin-bottom: 0rem;
+  color: #373737;
+}
+
+.headline h1, h2, h3 {
+  color: #ffffff;
 }
 
 .value-add {
@@ -33,6 +38,10 @@ p {
   padding: 50px;
 }
 
+.island-cards h1,h2,h3,h4,h5 {
+  text-shadow: 1px 1px 1px grey;
+}
+
 .card-columns {
   @include media-breakpoint-only(sm) {
     column-count: 2;
@@ -47,6 +56,12 @@ p {
     column-count: 4;
   }
 }
+
+.card-body h3 {
+  color: #82d73b;
+  // color: #000000;
+}
+
 
 /*-------------- Responsive CSS---------------*/
 @media (max-width:767px) {
@@ -67,7 +82,7 @@ p {
   }
 
   .footer {
-    bottom: 0;
+    // bottom: 0;
     width: 100%;
     height: unset;
     background-color: #82d73b;
